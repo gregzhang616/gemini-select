@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gemini Select</title>
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/css/gemini.select.min.css">
+</head>
+<body>
+<h3>Normal Gemini Select</h3>
+<div class="select-container" style="margin: 20px auto; width: 500px;">
+  <div class="gmi-select">
+    <div class="gmi-input">
+      <em class="gmi-input__icon icon-arrowdown"></em>
+      <input type="text" class="gmi-input__inner" disabled placeholder="请选择">
+    </div>
+    <div class="resize-triggers">
+      <div class="expand-trigger">
+        <div style="width: 241px; height: 37px;"></div>
+      </div>
+      <div class="contract-trigger"></div>
+    </div>
+  </div>
+  <div class="gmi-select-dropdown" style="z-index: 2008;">
+    <div class="gmi-select-dropdown__inner">
+      <div class="gmi-select-dropdown__inner__cnt">
+        <ul class="gmi-select-dropdown__inner__cnt__list">
+          <li class="gmi-select-dropdown__item"><span>黄金糕</span></li>
+          <li class="gmi-select-dropdown__item"><span>双皮奶</span></li>
+          <li class="gmi-select-dropdown__item is-active"><span>蚵仔煎</span></li>
+          <li class="gmi-select-dropdown__item"><span>龙须面</span></li>
+          <li class="gmi-select-dropdown__item"><span>炒肝</span></li>
+          <li class="gmi-select-dropdown__item"><span>炸酱面</span></li>
+          <li class="gmi-select-dropdown__item"><span>茯苓夹饼</span></li>
+          <li class="gmi-select-dropdown__item"><span>卤煮</span></li>
+          <li class="gmi-select-dropdown__item"><span>北京烤鸭</span></li>
+          <div class="resize-triggers">
+            <div class="expand-trigger">
+              <div style="width: 239px; height: 193px;"></div>
+            </div>
+            <div class="contract-trigger"></div>
+          </div>
+        </ul>
+      </div>
+      <div class="gmi-select-dropdown__inner__bar is-vertical">
+        <div class="gmi-select-scrollbar__thumb"></div>
+      </div>
+      <div class="gmi-select-dropdown__inner__empty" style="display: none;">
+        无匹配数据
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Disabled Gemini Select</h3>
+<div class="select-container " style="margin: 20px auto; width: 500px;">
+  <div class="gmi-select is-disabled">
+    <div class="gmi-input">
+      <em class="gmi-input__icon icon-arrowdown"></em>
+      <input type="text" class="gmi-input__inner" disabled placeholder="请选择">
+    </div>
+    <div class="resize-triggers">
+      <div class="expand-trigger">
+        <div style="width: 241px; height: 37px;"></div>
+      </div>
+      <div class="contract-trigger"></div>
+    </div>
+  </div>
+  <div class="gmi-select-dropdown" style="display: none;">
+    <div class="gmi-select-dropdown__inner">
+      <div class="gmi-select-dropdown__inner__cnt">
+        <ul class="gmi-select-dropdown__inner__cnt__list">
+          <li class="gmi-select-dropdown__item"><span>黄金糕</span></li>
+          <li class="gmi-select-dropdown__item"><span>双皮奶</span></li>
+          <li class="gmi-select-dropdown__item"><span>蚵仔煎</span></li>
+          <li class="gmi-select-dropdown__item"><span>龙须面</span></li>
+          <li class="gmi-select-dropdown__item"><span>炒肝</span></li>
+          <li class="gmi-select-dropdown__item"><span>炸酱面</span></li>
+          <li class="gmi-select-dropdown__item"><span>茯苓夹饼</span></li>
+          <li class="gmi-select-dropdown__item"><span>卤煮</span></li>
+          <li class="gmi-select-dropdown__item"><span>北京烤鸭</span></li>
+          <div class="resize-triggers">
+            <div class="expand-trigger">
+              <div style="width: 239px; height: 193px;"></div>
+            </div>
+            <div class="contract-trigger"></div>
+          </div>
+        </ul>
+      </div>
+      <div class="gmi-select-dropdown__inner__bar is-vertical">
+        <div class="gmi-select-scrollbar__thumb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Disabled Gemini Select Item</h3>
+<div class="select-container " style="margin: 20px auto; width: 500px;">
+  <div class="gmi-select">
+    <div class="gmi-input">
+      <em class="gmi-input__icon icon-arrowdown"></em>
+      <input type="text" class="gmi-input__inner" disabled placeholder="请选择">
+    </div>
+    <div class="resize-triggers">
+      <div class="expand-trigger">
+        <div style="width: 241px; height: 37px;"></div>
+      </div>
+      <div class="contract-trigger"></div>
+    </div>
+  </div>
+  <div class="gmi-select-dropdown" style="display: none;">
+    <div class="gmi-select-dropdown__inner">
+      <div class="gmi-select-dropdown__inner__cnt">
+        <ul class="gmi-select-dropdown__inner__cnt__list">
+          <li class="gmi-select-dropdown__item"><span>黄金糕</span></li>
+          <li class="gmi-select-dropdown__item"><span>双皮奶</span></li>
+          <li class="gmi-select-dropdown__item is-disabled"><span>蚵仔煎</span></li>
+          <li class="gmi-select-dropdown__item"><span>龙须面</span></li>
+          <li class="gmi-select-dropdown__item"><span>炒肝</span></li>
+          <li class="gmi-select-dropdown__item"><span>炸酱面</span></li>
+          <li class="gmi-select-dropdown__item"><span>茯苓夹饼</span></li>
+          <li class="gmi-select-dropdown__item"><span>卤煮</span></li>
+          <li class="gmi-select-dropdown__item"><span>北京烤鸭</span></li>
+          <div class="resize-triggers">
+            <div class="expand-trigger">
+              <div style="width: 239px; height: 193px;"></div>
+            </div>
+            <div class="contract-trigger"></div>
+          </div>
+        </ul>
+      </div>
+      <div class="gmi-select-dropdown__inner__bar is-vertical">
+        <div class="gmi-select-scrollbar__thumb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Clearable Gemini Select</h3>
+<div class="select-container " style="margin: 20px auto; width: 500px;">
+  <div class="gmi-select is-clearable">
+    <div class="gmi-input">
+      <em class="gmi-input__icon icon-clear1"></em>
+      <em class="gmi-input__icon icon-arrowdown"></em>
+      <input type="text" class="gmi-input__inner" placeholder="请选择">
+    </div>
+    <div class="resize-triggers">
+      <div class="expand-trigger">
+        <div style="width: 241px; height: 37px;"></div>
+      </div>
+      <div class="contract-trigger"></div>
+    </div>
+  </div>
+  <div class="gmi-select-dropdown" style="display: none;">
+    <div class="gmi-select-dropdown__inner">
+      <div class="gmi-select-dropdown__inner__cnt">
+        <ul class="gmi-select-dropdown__inner__cnt__list">
+          <li class="gmi-select-dropdown__item"><span>黄金糕</span></li>
+          <li class="gmi-select-dropdown__item"><span>双皮奶</span></li>
+          <li class="gmi-select-dropdown__item is-disabled"><span>蚵仔煎</span></li>
+          <li class="gmi-select-dropdown__item"><span>龙须面</span></li>
+          <li class="gmi-select-dropdown__item"><span>炒肝</span></li>
+          <li class="gmi-select-dropdown__item"><span>炸酱面</span></li>
+          <li class="gmi-select-dropdown__item"><span>茯苓夹饼</span></li>
+          <li class="gmi-select-dropdown__item"><span>卤煮</span></li>
+          <li class="gmi-select-dropdown__item"><span>北京烤鸭</span></li>
+          <div class="resize-triggers">
+            <div class="expand-trigger">
+              <div style="width: 239px; height: 193px;"></div>
+            </div>
+            <div class="contract-trigger"></div>
+          </div>
+        </ul>
+      </div>
+      <div class="gmi-select-dropdown__inner__bar is-vertical">
+        <div class="gmi-select-scrollbar__thumb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Gemini Select Group</h3>
+<div class="select-container " style="margin: 20px auto; width: 500px;">
+  <div class="gmi-select is-group">
+    <div class="gmi-input">
+      <em class="gmi-input__icon icon-arrowdown"></em>
+      <input type="text" class="gmi-input__inner" placeholder="请选择">
+    </div>
+    <div class="resize-triggers">
+      <div class="expand-trigger">
+        <div style="width: 241px; height: 37px;"></div>
+      </div>
+      <div class="contract-trigger"></div>
+    </div>
+  </div>
+  <div class="gmi-select-dropdown is-group" style="display: none;">
+    <div class="gmi-select-dropdown__inner">
+      <div class="gmi-select-dropdown__inner__cnt">
+        <ul class="gmi-select-dropdown__inner__cnt__list">
+          <ul class="gmi-select-group__wrapper">
+            <li class="gmi-select-group__title">热门城市</li>
+            <li class="gmi-select-group__cnt">
+              <ul class="gmi-select-group">
+                <li class="gmi-select-dropdown__item"><span>上海</span></li>
+                <li class="gmi-select-dropdown__item"><span>北京</span></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="gmi-select-group__wrapper">
+            <li class="gmi-select-group__title">城市名称</li>
+            <li class="gmi-select-group__cnt">
+              <ul class="gmi-select-group">
+                <li class="gmi-select-dropdown__item"><span>南京</span></li>
+                <li class="gmi-select-dropdown__item"><span>杭州</span></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="resize-triggers">
+            <div class="expand-trigger">
+              <div style="width: 239px; height: 193px;"></div>
+            </div>
+            <div class="contract-trigger"></div>
+          </div>
+        </ul>
+      </div>
+      <div class="gmi-select-dropdown__inner__bar is-vertical">
+        <div class="gmi-select-scrollbar__thumb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Gemini Multiple Select</h3>
+<div class="select-container" style="margin: 20px auto; width: 500px; min-height: 300px;">
+  <div class="gmi-select is-multiple is-clearable medium">
+    <div class="gmi-select-selection">
+      <div class="gmi-select-selection__inner" style="min-height: 49px; margin-bottom: -17px; margin-right: -17px;">
+        <div class="gmi-select-selection__tag--wrap">
+          <div class="gmi-tag">
+            <span class="gmi-tag-text">上海市</span>
+            <em class="gmi-tag-icon icon-clear"></em>
+          </div>
+          <div class="gmi-tag">
+            <span class="gmi-tag-text">北京市</span>
+            <em class="gmi-tag-icon icon-clear"></em>
+          </div>
+          <div class="gmi-tag" style="max-width: 200px;">
+            <span class="gmi-tag-text">乌鲁木齐市11111111111111111111</span>
+            <em class="gmi-tag-icon icon-clear"></em>
+          </div>
+          <div class="gmi-tag">
+            <span class="gmi-tag-text">杭州市</span>
+            <em class="gmi-tag-icon icon-clear"></em>
+          </div>
+          <div class="gmi-tag">
+            <span class="gmi-tag-text">杭州市</span>
+            <em class="gmi-tag-icon icon-clear"></em>
+          </div>
+          <div class="gmi-tag">
+            <span class="gmi-tag-text">杭州市</span>
+            <em class="gmi-tag-icon icon-clear"></em>
+          </div>
+        </div>
+        <span class="gmi-select-selection__placeholder">请选择</span>
+        <em class="gmi-input__icon icon-clear1"></em>
+        <em class="gmi-select-selection__icon icon-arrowdown" style="display: none;"></em>
+      </div>
+    </div>
+    <div class="resize-triggers">
+      <div class="expand-trigger">
+        <div style="width: 241px; height: 37px;"></div>
+      </div>
+      <div class="contract-trigger"></div>
+    </div>
+  </div>
+  <div class="gmi-select-dropdown is-multiple" style="display: none;">
+    <div class="gmi-select-dropdown__inner">
+      <div class="gmi-select-dropdown__inner__cnt" >
+        <ul class="gmi-select-dropdown__inner__cnt__list">
+          <li class="gmi-select-dropdown__item"><span>黄金糕</span></li>
+          <li class="gmi-select-dropdown__item"><span>双皮奶</span></li>
+          <li class="gmi-select-dropdown__item is-active"><span>蚵仔煎</span></li>
+          <li class="gmi-select-dropdown__item"><span>龙须面</span></li>
+          <li class="gmi-select-dropdown__item"><span>炒肝</span></li>
+          <li class="gmi-select-dropdown__item"><span>炸酱面</span></li>
+          <li class="gmi-select-dropdown__item"><span>茯苓夹饼</span></li>
+          <li class="gmi-select-dropdown__item"><span>卤煮</span></li>
+          <li class="gmi-select-dropdown__item"><span>北京烤鸭</span></li>
+          <div class="resize-triggers">
+            <div class="expand-trigger">
+              <div style="width: 239px; height: 193px;"></div>
+            </div>
+            <div class="contract-trigger"></div>
+          </div>
+        </ul>
+      </div>
+      <div class="gmi-select-dropdown__inner__bar is-vertical">
+        <div class="gmi-select-scrollbar__thumb"></div>
+      </div>
+      <div class="gmi-select-dropdown__inner__empty" style="display: none;">
+        无匹配数据
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Gemini Select Example</h3>
+<div class="select-container" style="margin: 20px auto 300px; width: 500px; min-height: 300px;">
+  <div id="select_demo" style=" width: 240px;height: 32px;"></div>
+</div>
+
+<h4>Button Group</h4>
+<button type="button" id="select_set_value">setValue</button>
+<button type="button" id="select_get_value">getValue</button>
+<script src="/assets/js/jquery.js"></script>
+<script src="/js/gemini.select.js"></script>
+<script>
+  $('#select_demo').select({
+      clearable: true,
+      data: [
+            {label: 'Beijing', value: 11},
+            {label: 'Nanjing', value: 12},
+            {label: 'Hangzhou', value: 13},
+            {label: 'Suzhou', value: 14},
+            {label: 'Shijiazhuang', value: 21},
+            {label: 'Guangzhou', value: 22},
+            {label: 'Shenzhen', value: 23},
+            {label: 'Changsha', value: 24},
+            {label: 'Zhuzhou', value: 25},
+            {label: 'Heze', value: 26},
+            {label: 'Chongqing', value: 27},
+            {label: 'Mianyang', value: 28},
+            {label: 'Chengdu', value: 29},
+            {label: 'Wulumuqi', value: 30}
+      ],
+    onChange: function (e) {
+      console.log(e.newValue);
+    }
+  });
+
+  $('#select_get_value').on('click', function (e) {
+    console.log($('#select_demo').select('getValue'));
+    e.stopPropagation();
+  });
+
+  $('#select_set_value').on('click', function (e) {
+    $('#select_demo').select('setValue', [11, 26, 30]);
+    e.stopPropagation();
+  });
+</script>
+</body>
+</html>
