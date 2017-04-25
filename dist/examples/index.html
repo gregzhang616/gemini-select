@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Gemini Select</title>
-  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/reset.css?time=New Date().css">
   <link rel="stylesheet" href="/css/gemini.select.min.css">
 </head>
 <body>
@@ -310,6 +310,10 @@
 <button type="button" id="select_get_value">getValue</button>
 <script src="/assets/js/jquery.js"></script>
 <script src="/js/gemini.select.js"></script>
+
+<h4>onClick和addEventListener</h4>
+<h5 id="amy_element">Amy哈哈</h5>
+<button id="amy_element_btn">Amy哈哈Button</button>
 <script>
   $('#select_demo').select({
       clearable: true,
@@ -343,6 +347,24 @@
     $('#select_demo').select('setValue', [11, 26, 30]);
     e.stopPropagation();
   });
+
+  var start;
+  var element = document.getElementById('amy_element');
+
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    var progress = timestamp - start;
+    element.style.left = Math.max(progress / 10, 200) + 'px';
+    console.log(progress);
+    if (progress < 2000) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  document.getElementById('amy_element_btn').addEventListener('click', function () {
+    element.style.position = 'absolute';
+    window.requestAnimationFrame(step);
+  }, false);
 </script>
 </body>
 </html>

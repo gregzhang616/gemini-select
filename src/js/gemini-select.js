@@ -59,6 +59,7 @@
       scrollBarWidth: null,
       cache: {},
       value: null,
+      currentPos: 0,
       valueHooks: {
         get: function () {
           return select.value;
@@ -105,6 +106,7 @@
       },
       init: function () {
         select = $.extend(true, select, core.defaults, options);
+        select.barDragging = false;
         core.value = select.type === 'multiple' ? [] : '';
         core.created();
       },
@@ -224,10 +226,16 @@
             }
           }
           e.stopPropagation();
-        }).on(EVENT_NAME_MOUSE_ENTER, function () {
-          select.$scrollbar.css('opacity', 1);
+        }).on(EVENT_NAME_MOUSE_ENTER, function (e) {
+          var $delegateTarget = $(e.delegateTarget);
+          var $cntList = $delegateTarget.find('.gmi-select-dropdown__inner__cnt__list');
+          var cntListHeight = $cntList.outerHeight();
+          var maxHeight = parseInt($dpInnerCnt.css('max-height').replace(/px/, ''), 10);
+          if (cntListHeight > maxHeight) {
+            select.$scrollbar.css('opacity', 1);
+          }
         }).on(EVENT_NAME_MOUSE_LEAVE, function () {
-          select.$scrollbar.css('opacity', 0);
+          if (Number(select.$scrollbar.css('opacity')) === 1) select.$scrollbar.css('opacity', 0);
         });
 
         $dpInnerCnt.on(EVENT_NAME_SCROLL, function (e) {
@@ -243,12 +251,23 @@
               'transform': 'translateY('+ (wrapHeight - scrollBarHeight - scrollBarStyleTop * 2) +'px)',
               '-ms-transform': 'translateY('+ (wrapHeight - scrollBarHeight - scrollBarStyleTop * 2) +'px)'
             });
+            core.translateY = wrapHeight - scrollBarHeight - scrollBarStyleTop * 2;
           } else {
             select.$scrollbar.css({
               'transform': 'translateY('+ translateY +'px)',
               '-ms-transform': 'translateY('+ translateY +'px)'
             });
+            core.translateY = translateY;
           }
+        });
+
+        select.$scrollbar.on('mousedown', function (e) {
+          core.onDragStart(e);
+          $(window)
+            .on('mousemove', core.onDragging)
+            .on('mouseup', core.onDragEnd)
+            .on('contextmenu', core.onDragEnd);
+          e.preventDefault();
         });
 
         if ($.isFunction(select.onShow)) {
@@ -385,8 +404,8 @@
         var $dropdown = select.$dropdown;
         var $wrap = $dropdown.find('.gmi-select-dropdown__inner');
         var $cnt = $dropdown.find('.gmi-select-dropdown__inner__cnt__list');
-        var wrapHeight = $wrap.height();
-        var cntHeight = $cnt.height();
+        var wrapHeight = $wrap.outerHeight();
+        var cntHeight = $cnt.outerHeight();
         return wrapHeight / cntHeight;
       },
       setInnerScrollBarHeight: function () {
@@ -479,6 +498,54 @@
 
         core.scrollBarWidth = widthOuter - widthInner;
         return core.scrollBarWidth;
+      },
+      onDragStart: function (e) {
+        select.barDragging = true;
+        core.startY = e.clientY;
+        if (isNumber(core.translateY)) core.currentPos = core.translateY;
+        select.$scrollbar.css({
+          'transform': 'translateY('+ core.currentPos +'px)',
+          '-ms-transform': 'translateY('+ core.currentPos +'px)'
+        });
+      },
+      onDragging: function (e) {
+        var $wrapper = select.$dropdown.find('.gmi-select-dropdown__inner__cnt');
+        var wrapHeight = $wrapper.get(0).clientHeight;
+        var scrollbarHeight = select.$scrollbar.outerHeight();
+        var scrollBarStyleTop = parseInt(select.$scrollbar.css('top').replace(/px/, ''), 10);
+        var proportion = core.getProportionWidthCntAndWrap();
+        var diff;
+        var translateY = core.currentPos;
+        if (select.barDragging) {
+          core.currentY = e.clientY;
+          diff = core.currentY - core.startY;
+          if (core.translateY === undefined) core.translateY = 0;
+          if (core.translateY + diff + core.currentPos < 0) {
+            translateY = 0;
+          } else if (core.currentPos + diff + scrollbarHeight + scrollBarStyleTop >= wrapHeight) {
+            translateY = wrapHeight - scrollbarHeight - scrollBarStyleTop * 2;
+          } else {
+            translateY += diff;
+          }
+          core.translateY = translateY;
+          $wrapper.scrollTop(translateY / proportion);
+
+          select.$scrollbar.css({
+            'transform': 'translateY('+ translateY +'px)',
+            '-ms-transform': 'translateY('+ translateY +'px)'
+          });
+        }
+      },
+      onDragEnd: function (e) {
+        if (select.barDragging) {
+          setTimeout(function () {
+            select.barDragging = false;
+          }, 0);
+          core.currentPos = core.translateY;
+          $(window).off('mousemove', core.onDragging);
+          $(window).off('mouseup', core.onDragEnd);
+          $(window).off('contextmenu', core.onDragEnd);
+        }
       },
       getObjectKeys: function (obj, value) {
         var keys;
